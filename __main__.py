@@ -1,46 +1,43 @@
 import matplotlib.pyplot as plt
 import csv
+import random
+import math
 
 
 def main():
+    plt.ion()
+
     # Defining default plot
-    plt.axis([0, 160, 0, 160])
-    plt.xlabel('Size (m²)')
-    plt.ylabel('Price (€)')
-    plt.title('[Apartment] f(size) = price')
+    plt.axis([0, 100, 0, 100])
 
-    # Initialize the default dataset
-    dataset = Dataset()
+    # Import dataset
+    dataset = import_csv_data('train.csv')
+
     # Scatter plot
-    plt.plot(dataset.get_x(), dataset.get_y(), color='b', marker='x', ls='', ms=10)
+    for data_tuple in dataset:
+        plt.scatter(data_tuple[0], data_tuple[1])
 
-    plt.show()
-
-
-class Dataset:
-    def __init__(self):
-        self.dataset_reader = CSVReader('dataset.csv')
-
-    def get_x(self):
-        return self.dataset_reader.get_row(0)
-
-    def get_y(self):
-        return self.dataset_reader.get_row(1)
+    for i in range(0, 1000):
+        plt.pause(0.05)
+        b = random.randint(0, 100)
+        a = math.tan(random.uniform(-math.pi / 2, math.pi / 2))
+        plt.plot([0, 100], [b, a * 100 + b])
 
 
-class CSVReader:
-    def __init__(self, filename):
-        self.filename = filename
+def import_csv_data(filename):
+    dataset = []
 
-    def get_row(self, row_index):
-        with open(self.filename, 'rt') as f:
-            dataset = csv.reader(f)
-            i = 0
-            for data_row in dataset:
-                if i == row_index:
-                    row = [int(data) for data in data_row]
-                    return row
-                i += 1
+    with open(filename, 'rt') as f:
+        dataset_reader = csv.reader(f)
+        i = 0
+
+        for data_row in dataset_reader:
+            row = [float(data) for data in data_row]
+            print(row)
+            dataset.append(row)
+            i += 1
+
+    return dataset
 
 
 if __name__ == "__main__":
