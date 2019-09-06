@@ -6,20 +6,15 @@ import time
 
 
 def main():
+    train()
+
+
+def train(dataset_filename="train.csv", epoch=500, learning_rate_a=0.0001, learning_rate_b=0.1
+          , plot_update_interval=0.2, a=math.tan(random.uniform(-math.pi / 2, math.pi / 2)),
+          b=random.randint(0, 100)
+          ):
     # Import dataset
-    dataset = import_csv_data('train.csv')
-
-    # Define learning rate and epoch
-    learning_rate_a = 0.0001
-    learning_rate_b = 0.1
-    epoch = 500
-
-    # Define the duration between each graphical update of the plot | (bigger it is : lower the execution time will be)
-    plot_update_interval = 0.2
-
-    # Initialize random parameters
-    a = math.tan(random.uniform(-math.pi / 2, math.pi / 2))
-    b = random.randint(0, 100)
+    dataset = import_csv_data(dataset_filename)
 
     # Enable plot animation
     plt.ion()
