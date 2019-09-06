@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 import csv
 import random
 import math
@@ -20,14 +20,14 @@ def main():
     # Enable plot animation
     plt.ion()
 
+    # Define default plot
+    plt.axis([0, 100, 0, 100])
+
     # Draw data points
     for data_point in dataset:
         plt.scatter(data_point[0], data_point[1])
 
     for i in range(0, epoch):
-        # Define default plot
-        plt.axis([0, 100, 0, 100])
-
         # Draw hypothesis
         ln, = plt.plot([0, 100], [b, a * 100 + b])
 
