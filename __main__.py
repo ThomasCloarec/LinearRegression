@@ -2,14 +2,13 @@ import matplotlib.pyplot as plt
 import csv
 import random
 import math
-import os
 
 
 def main():
     # Define learning rate and epoch
     learning_rate_a = 0.0001
     learning_rate_b = 0.1
-    epoch = 100
+    epoch = 500
 
     # Import dataset
     dataset = import_csv_data('train.csv')
@@ -53,7 +52,7 @@ def main():
         ln.remove()
 
     # Prevent program from ending
-    os.system("pause")
+    print()
 
 
 # Import and transform an CSV file into a list
