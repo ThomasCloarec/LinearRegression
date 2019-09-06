@@ -46,13 +46,13 @@ def main():
         b -= learning_rate_b * cost_b
 
         #  Wait before next hypothesis
-        plt.pause(0.01)
+        plt.pause(0.0001)
 
         # Remove last hypothesis
         ln.remove()
 
     # Prevent program from ending
-    print()
+    input("<Hit Enter To Close>")
 
 
 # Import and transform an CSV file into a list
