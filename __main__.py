@@ -17,7 +17,7 @@ class Model:
         self.b = b
 
     def train(self, dataset_filename="train.csv", epoch=1000, learning_rate_a=0.0001, learning_rate_b=0.1,
-              plot_update_interval=0.22):
+              plot_update_interval=0.23):
         # Import dataset
         dataset = import_csv_data(dataset_filename)
 
