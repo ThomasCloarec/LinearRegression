@@ -144,7 +144,7 @@ class Model:
         plt.pause(10)
 
 
-def prepare_plot(title):
+def prepare_plot(title="Linear regression model", x1=0, x2=100, y1=0, y2=100):
     # Clean plot
     plt.clf()
 
@@ -155,7 +155,7 @@ def prepare_plot(title):
     plt.ion()
 
     # Define default plot
-    plt.axis([0, 100, 0, 100])
+    plt.axis([x1, x2, y1, y2])
 
 
 # Import and transform an CSV file into a list
