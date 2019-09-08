@@ -54,7 +54,7 @@ class Model:
                 # Update hypothesis text
                 if hypothesis_text is not None:
                     hypothesis_text.remove()
-                hypothesis_text = plt.text(-90, 80,
+                hypothesis_text = plt.text(-100, 80,
                                            "f(x) = " + str(math.ceil(self.a * 1000) / 1000) + "x + " + str(
                                                math.ceil(self.b * 1000) / 1000))
 
