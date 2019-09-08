@@ -98,12 +98,12 @@ class Model:
         epoch_text = plt.text(55, 35,
                               "epoch = " + str(epoch) + "/" + str(epoch) + " (100%)")
 
-        # Define and draw final cost
-        cost = 0
+        # Define and draw final average error
+        average_error = 0
         for sample in dataset:
             temp_hypothesis = self.a * sample[0] + self.b
-            cost = cost + (temp_hypothesis - sample[1]) / len(dataset)
-        plt.text(10, 80, "cost = " + str(math.ceil(cost * 1000) / 1000))
+            average_error = average_error + abs(temp_hypothesis - sample[1]) / len(dataset)
+        plt.text(10, 80, "average error = " + str(math.ceil(average_error * 1000) / 1000))
 
         # Draw execution duration time
         duration = time.time() - begin
@@ -131,14 +131,14 @@ class Model:
                                    "f(x) = " + str(math.ceil(self.a * 1000) / 1000) + "x + " + str(
                                        math.ceil(self.b * 1000) / 1000))
 
-        # Define and draw cost
-        cost = 0
+        # Define and draw average error
+        average_error = 0
         for sample in dataset:
             temp_hypothesis = self.a * sample[0] + self.b
-            cost = cost + (temp_hypothesis - sample[1]) / len(dataset)
+            average_error = average_error + abs(temp_hypothesis - sample[1]) / len(dataset)
 
         # Draw the final duration time text
-        plt.text(10, 80, "cost = " + str(math.ceil(cost * 1000) / 1000))
+        plt.text(10, 80, "average error = " + str(math.ceil(average_error * 1000) / 1000))
 
         # Update the plot for the last time and keep it open for 10 seconds
         plt.pause(10)
